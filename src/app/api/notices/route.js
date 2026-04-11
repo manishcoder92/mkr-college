@@ -12,8 +12,16 @@ export async function GET() {
   
   try {
     const activeNotices = await Notice.find({
-      validFrom: { $lte: now },
-      validUntil: { $gt: now }
+      $or: [
+        // Notices with valid date range
+        { validFrom: { $lte: now }, validUntil: { $gt: now } },
+        // Notices without date restrictions (both missing)
+        { validFrom: { $exists: false }, validUntil: { $exists: false } },
+        // Notices with only validFrom set (no expiry)
+        { validFrom: { $lte: now }, validUntil: { $exists: false } },
+        // Notices with null dates
+        { validFrom: null, validUntil: null },
+      ]
     }).sort({ createdAt: -1 });
     
     return NextResponse.json(
