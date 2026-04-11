@@ -3,6 +3,9 @@ import dbConnect from '@/lib/mongodb';
 import Notice from '@/lib/models/Notice';
 import { verifyToken } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET() {
   await dbConnect();
   const now = new Date();
@@ -13,7 +16,10 @@ export async function GET() {
       validUntil: { $gt: now }
     }).sort({ createdAt: -1 });
     
-    return NextResponse.json({ success: true, notices: activeNotices });
+    return NextResponse.json(
+      { success: true, notices: activeNotices },
+      { headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0' } }
+    );
   } catch (error) {
     return NextResponse.json({ success: false, error: 'Failed to fetch notices' }, { status: 500 });
   }
