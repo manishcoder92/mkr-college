@@ -51,7 +51,7 @@ function MarqueeUI({ notices, language }) {
             <span key={`${notice._id}-${index}`} className="mx-8 font-sans text-sm">
               <span className="text-[#FFD700] mr-2">♦</span>
               <span className={notice.isImportant ? 'text-[#FFD700] font-bold' : ''}>
-                {language === 'en' ? notice.textEn : notice.textHi}
+                {language === 'en' ? (notice.textEn || notice.textHi) : (notice.textHi || notice.textEn)}
               </span>
             </span>
           ))}

@@ -71,7 +71,7 @@ export default function NoticeBoard({ language }) {
                 {formatDate(notice.createdAt)}
               </span>
               <p className="text-gray-800 text-sm font-medium">
-                {language === 'en' ? notice.textEn : notice.textHi}
+                {language === 'en' ? (notice.textEn || notice.textHi) : (notice.textHi || notice.textEn)}
               </p>
             </motion.div>
           ))}
