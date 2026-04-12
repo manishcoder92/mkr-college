@@ -18,12 +18,12 @@ export default function Hero() {
         {/* Background Image using Next.js Image Optimization */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero/hero-mkr-final.webp"
-            alt="MKR College Campus"
+            src="/images/hero/hero-campus.jpg"
+            alt="MKR College Campus Building"
             fill
             priority
-            quality={80}
-            className="object-cover object-center"
+            quality={90}
+            className="object-cover object-[center_60%]"
             sizes="100vw"
           />
         </div>
