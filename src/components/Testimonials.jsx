@@ -155,7 +155,7 @@ export default function Testimonials({ language = 'en' }) {
           </AnimatePresence>
 
           {/* Controls */}
-          <div className="absolute bottom-6 right-6 md:right-16 flex gap-3 z-30">
+          <div className="absolute bottom-6 right-6 md:right-16 hidden md:flex gap-3 z-30">
             <button
               onClick={() => setCurrentIndex((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length)}
               className="w-12 h-12 rounded-full bg-white text-[#800000] border-2 border-[#800000]/10 flex items-center justify-center hover:bg-[#800000] hover:text-white transition-all shadow-md group"
@@ -170,12 +170,12 @@ export default function Testimonials({ language = 'en' }) {
             </button>
           </div>
 
-          <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2 md:hidden z-30">
+          <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-3 md:hidden z-30">
             {testimonialsData.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${idx === currentIndex ? 'bg-[#800000] w-8' : 'bg-white/50'}`}
+                className={`h-2.5 rounded-full transition-all ${idx === currentIndex ? 'bg-[#800000] w-8' : 'bg-gray-300 w-2.5'}`}
               />
             ))}
           </div>
