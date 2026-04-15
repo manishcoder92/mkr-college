@@ -2,22 +2,23 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Add as many video filenames here as you want!
-// Make sure to drop all these video files into the public/videos/ folder.
-const videoFiles = [
-  '/videos/vid1.mp4',
-  '/videos/vid2.mp4',
+// Add your YouTube Video Endings (IDs) here!
+// For example, if your YouTube link is: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+// You just copy the "dQw4w9WgXcQ" part and paste it below.
+const youtubeIds = [
+  'uKbAkR3EUOw',
+  'NQA6z71_J2o',
 ];
 
 export default function CollegeVideo({ language }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % videoFiles.length);
+    setCurrentIndex((prev) => (prev + 1) % youtubeIds.length);
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + videoFiles.length) % videoFiles.length);
+    setCurrentIndex((prev) => (prev - 1 + youtubeIds.length) % youtubeIds.length);
   };
 
   return (
@@ -69,19 +70,20 @@ export default function CollegeVideo({ language }) {
         >
 
           <AnimatePresence mode="wait">
-            <motion.video
-              key={currentIndex}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.05 }}
-              transition={{ duration: 0.5 }}
-              src={videoFiles[currentIndex]}
-              className="w-full h-full object-cover relative z-10"
-              controls
-              preload="metadata"
-            >
-              Your browser does not support the video tag.
-            </motion.video>
+            {youtubeIds[currentIndex] !== 'YOUR_FIRST_YOUTUBE_ID_HERE' && youtubeIds[currentIndex] !== 'YOUR_SECOND_YOUTUBE_ID_HERE' ? (
+              <motion.iframe
+                key={currentIndex}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.05 }}
+                transition={{ duration: 0.5 }}
+                src={`https://www.youtube.com/embed/${youtubeIds[currentIndex]}?rel=0&modestbranding=1`}
+                className="w-full h-full relative z-10"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : null}
           </AnimatePresence>
 
           {/* Left Arrow */}
@@ -101,18 +103,20 @@ export default function CollegeVideo({ language }) {
           </button>
 
           {/* Fallback instruction if video fails to load or isn't dropped yet */}
-          <div className="absolute inset-0 z-0 flex flex-col items-center justify-center text-white p-6 text-center bg-black/60 backdrop-blur-sm pointer-events-none">
-            <svg className="w-16 h-16 mb-6 opacity-80 text-[#FFD700]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-            <h3 className="text-xl font-bold mb-3 font-serif">Video {currentIndex + 1} Not Found Yet!</h3>
-            <p className="text-gray-300 max-w-md mx-auto text-sm leading-relaxed mb-4">
-              To play your video here, drag and drop it into the <code className="bg-white/20 px-2 py-0.5 rounded font-mono">public/videos/</code> folder and name it <code className="bg-white/20 px-2 py-0.5 rounded font-mono">vid{currentIndex + 1}.mp4</code>.
-            </p>
-          </div>
+          {(youtubeIds[currentIndex] === 'YOUR_FIRST_YOUTUBE_ID_HERE' || youtubeIds[currentIndex] === 'YOUR_SECOND_YOUTUBE_ID_HERE') && (
+            <div className="absolute inset-0 z-0 flex flex-col items-center justify-center text-white p-6 text-center bg-black/60 backdrop-blur-sm pointer-events-none">
+              <svg className="w-16 h-16 mb-6 opacity-80 text-[#FFD700]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+              <h3 className="text-xl font-bold mb-3 font-serif">Awaiting YouTube Connection...</h3>
+              <p className="text-gray-300 max-w-md mx-auto text-sm leading-relaxed mb-4">
+                Open <code className="bg-white/20 px-2 py-0.5 rounded font-mono">src/components/CollegeVideo.jsx</code> in your code editor and replace the placeholder text with your actual YouTube Video ID.
+              </p>
+            </div>
+          )}
         </motion.div>
 
         {/* Dot Pagination Track */}
         <div className="flex justify-center items-center gap-3 mt-8">
-          {videoFiles.map((_, idx) => (
+          {youtubeIds.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentIndex(idx)}
