@@ -190,7 +190,7 @@ export default function Navbar() {
               href="/admit-card"
               className="border-2 border-slate-300 text-slate-700 px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all shadow-sm hover:border-[#800000] hover:text-[#800000] hidden md:flex"
             >
-              {language === 'en' ? 'Admit Card' : 'प्रवेश पत्र'}
+              {language === 'en' ? 'Download' : 'डाउनलोड'}
             </Link>
             <Link
               href="/admin-login"
@@ -255,18 +255,18 @@ export default function Navbar() {
           </div>
         </div>
 
-      {/* Mega Menu Overlay */}
-      <AnimatePresence>
-        {activeMenu && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.2 }}
-            onMouseEnter={() => handleMouseEnter(activeMenu)}
-            onMouseLeave={handleMouseLeave}
-            className="absolute top-full left-0 right-0 bg-white border-t-4 border-[#002B5C] shadow-[0_20px_50px_rgba(0,0,0,0.15)] z-[45] overflow-hidden"
-          >
+        {/* Mega Menu Overlay */}
+        <AnimatePresence>
+          {activeMenu && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.2 }}
+              onMouseEnter={() => handleMouseEnter(activeMenu)}
+              onMouseLeave={handleMouseLeave}
+              className="absolute top-full left-0 right-0 bg-white border-t-4 border-[#002B5C] shadow-[0_20px_50px_rgba(0,0,0,0.15)] z-[45] overflow-hidden"
+            >
 
 
               <div className="max-w-7xl mx-auto p-10 flex gap-12">
@@ -325,110 +325,110 @@ export default function Navbar() {
         </AnimatePresence>
       </motion.div>
 
-        {/* Mobile Menu - Full Screen Overlay */}
-        {mobileOpen && (
-          <div className="lg:hidden fixed inset-0 bg-white z-[100] overflow-y-auto pb-8 flex flex-col">
-            <div className="flex justify-between items-center px-4 py-3 border-b-2 border-gray-100 shrink-0 bg-[#FFF8F0]">
-              <div className="flex items-center gap-3">
-                <img src="/assets/college logo.webp" alt="MKR College Logo" className="w-12 h-12 rounded-full object-cover shadow-sm border-2 border-[#800000]/10" />
-                <div className="leading-tight">
-                  <span className="font-serif font-black text-[#800000] text-lg block tracking-wide">M.K.R. College</span>
-                  <span className="text-[10px] font-bold text-[#8B6914] tracking-widest uppercase">Sitamarhi, Bihar</span>
-                </div>
+      {/* Mobile Menu - Full Screen Overlay */}
+      {mobileOpen && (
+        <div className="lg:hidden fixed inset-0 bg-white z-[100] overflow-y-auto pb-8 flex flex-col">
+          <div className="flex justify-between items-center px-4 py-3 border-b-2 border-gray-100 shrink-0 bg-[#FFF8F0]">
+            <div className="flex items-center gap-3">
+              <img src="/assets/college logo.webp" alt="MKR College Logo" className="w-12 h-12 rounded-full object-cover shadow-sm border-2 border-[#800000]/10" />
+              <div className="leading-tight">
+                <span className="font-serif font-black text-[#800000] text-lg block tracking-wide">M.K.R. College</span>
+                <span className="text-[10px] font-bold text-[#8B6914] tracking-widest uppercase">Sitamarhi, Bihar</span>
               </div>
-              <button
-                onClick={() => setMobileOpen(false)}
-                className="text-[#800000] text-xl w-10 h-10 flex items-center justify-center rounded-lg bg-[#800000]/10 hover:bg-[#800000]/20 transition-all font-bold"
-               >
-                 ✕
-              </button>
             </div>
-            <div className="px-4 py-4 space-y-2 flex-grow">
-              {navLinks.map((link) => (
-                <div key={link.labelEn} className="border-b border-gray-50 last:border-0 pb-1">
-                  {link.type === 'mega' ? (
-                    <div>
-                      <button
-                        onClick={() => setActiveMenu(activeMenu === link.key ? null : link.key)}
-                        className="w-full flex items-center justify-between text-gray-700 font-bold text-lg py-4 px-4 rounded-xl hover:bg-gray-50 transition-all"
-                      >
-                        {link.labelEn}
-                        <span className={`text-sm transition-transform duration-300 ${activeMenu === link.key ? 'rotate-180' : ''}`}>▼</span>
-                      </button>
-                      <AnimatePresence>
-                        {activeMenu === link.key && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className="bg-gray-50/50 rounded-2xl mx-2 overflow-hidden"
-                          >
-                            {megaMenuItems[link.key].sections.map((section, sidx) => (
-                              <div key={sidx} className="p-4 pt-6 first:pt-4">
-                                <h4 className="text-[#800000] font-black text-[10px] tracking-widest uppercase mb-4 px-2">
-                                  {language === 'en' ? section.headerEn : section.headerHi}
-                                </h4>
-                                <div className="space-y-1">
-                                  {section.links.map((sub, lidx) => (
-                                    <a
-                                      key={lidx}
-                                      href={sub.href}
-                                      onClick={() => { setMobileOpen(false); setActiveMenu(null); }}
-                                      className="block text-gray-600 font-medium py-3 px-3 rounded-lg active:bg-white active:shadow-sm transition-all"
-                                    >
-                                      {language === 'en' ? sub.labelEn : sub.labelHi}
-                                    </a>
-                                  ))}
-                                </div>
-                              </div>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  ) : (
-                    <a
-                      href={link.href}
-                      {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                      onClick={() => setMobileOpen(false)}
-                      className="block text-gray-700 font-bold text-lg py-4 px-4 rounded-xl hover:bg-gray-50 transition-all border-b border-transparent"
+            <button
+              onClick={() => setMobileOpen(false)}
+              className="text-[#800000] text-xl w-10 h-10 flex items-center justify-center rounded-lg bg-[#800000]/10 hover:bg-[#800000]/20 transition-all font-bold"
+            >
+              ✕
+            </button>
+          </div>
+          <div className="px-4 py-4 space-y-2 flex-grow">
+            {navLinks.map((link) => (
+              <div key={link.labelEn} className="border-b border-gray-50 last:border-0 pb-1">
+                {link.type === 'mega' ? (
+                  <div>
+                    <button
+                      onClick={() => setActiveMenu(activeMenu === link.key ? null : link.key)}
+                      className="w-full flex items-center justify-between text-gray-700 font-bold text-lg py-4 px-4 rounded-xl hover:bg-gray-50 transition-all"
                     >
                       {link.labelEn}
-                    </a>
-                  )}
-                </div>
-              ))}
-
-              <div className="pt-6 space-y-4 border-t border-gray-100 mt-6 px-4">
-                <MotionLink
-                  href="/admit-card"
-                  whileTap={{ scale: 0.95, backgroundColor: '#FFD700', color: '#800000' }}
-                  onClick={() => setMobileOpen(false)}
-                  className="block text-center border-2 border-gray-200 text-gray-700 px-5 py-3.5 rounded-2xl text-base font-bold transition-all shadow-sm bg-white"
-                >
-                  {language === 'en' ? 'Admit Card' : 'प्रवेश पत्र'}
-                </MotionLink>
-                <MotionLink
-                  href="/admin-login"
-                  whileTap={{ scale: 0.95, backgroundColor: '#FFD700', color: '#800000' }}
-                  onClick={() => setMobileOpen(false)}
-                  className="block text-center border-2 border-gray-200 text-gray-700 px-5 py-3.5 rounded-2xl text-base font-bold transition-all shadow-sm bg-white"
-                >
-                  {language === 'en' ? 'Admin Portal' : 'एडमिन पोर्टल'}
-                </MotionLink>
-                <a
-                  href="https://college.mkrcollege.com/site/login"
-                  target="_blank"
-                  rel="noopener"
-                  onClick={() => setMobileOpen(false)}
-                  className="block text-center bg-[#5B48D9] text-white px-5 py-3.5 rounded-2xl text-base font-bold active:bg-[#4A39BA] shadow-[0_10px_20px_rgba(91,72,217,0.3)] transition-colors"
-                >
-                  ERP Login
-                </a>
+                      <span className={`text-sm transition-transform duration-300 ${activeMenu === link.key ? 'rotate-180' : ''}`}>▼</span>
+                    </button>
+                    <AnimatePresence>
+                      {activeMenu === link.key && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="bg-gray-50/50 rounded-2xl mx-2 overflow-hidden"
+                        >
+                          {megaMenuItems[link.key].sections.map((section, sidx) => (
+                            <div key={sidx} className="p-4 pt-6 first:pt-4">
+                              <h4 className="text-[#800000] font-black text-[10px] tracking-widest uppercase mb-4 px-2">
+                                {language === 'en' ? section.headerEn : section.headerHi}
+                              </h4>
+                              <div className="space-y-1">
+                                {section.links.map((sub, lidx) => (
+                                  <a
+                                    key={lidx}
+                                    href={sub.href}
+                                    onClick={() => { setMobileOpen(false); setActiveMenu(null); }}
+                                    className="block text-gray-600 font-medium py-3 px-3 rounded-lg active:bg-white active:shadow-sm transition-all"
+                                  >
+                                    {language === 'en' ? sub.labelEn : sub.labelHi}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <a
+                    href={link.href}
+                    {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    onClick={() => setMobileOpen(false)}
+                    className="block text-gray-700 font-bold text-lg py-4 px-4 rounded-xl hover:bg-gray-50 transition-all border-b border-transparent"
+                  >
+                    {link.labelEn}
+                  </a>
+                )}
               </div>
+            ))}
+
+            <div className="pt-6 space-y-4 border-t border-gray-100 mt-6 px-4">
+              <MotionLink
+                href="/admit-card"
+                whileTap={{ scale: 0.95, backgroundColor: '#FFD700', color: '#800000' }}
+                onClick={() => setMobileOpen(false)}
+                className="block text-center border-2 border-gray-200 text-gray-700 px-5 py-3.5 rounded-2xl text-base font-bold transition-all shadow-sm bg-white"
+              >
+                {language === 'en' ? 'Download' : 'डाउनलोड'}
+              </MotionLink>
+              <MotionLink
+                href="/admin-login"
+                whileTap={{ scale: 0.95, backgroundColor: '#FFD700', color: '#800000' }}
+                onClick={() => setMobileOpen(false)}
+                className="block text-center border-2 border-gray-200 text-gray-700 px-5 py-3.5 rounded-2xl text-base font-bold transition-all shadow-sm bg-white"
+              >
+                {language === 'en' ? 'Admin Portal' : 'एडमिन पोर्टल'}
+              </MotionLink>
+              <a
+                href="https://college.mkrcollege.com/site/login"
+                target="_blank"
+                rel="noopener"
+                onClick={() => setMobileOpen(false)}
+                className="block text-center bg-[#5B48D9] text-white px-5 py-3.5 rounded-2xl text-base font-bold active:bg-[#4A39BA] shadow-[0_10px_20px_rgba(91,72,217,0.3)] transition-colors"
+              >
+                ERP Login
+              </a>
             </div>
           </div>
-        )}
+        </div>
+      )}
     </>
   );
 }

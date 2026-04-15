@@ -32,13 +32,18 @@ export default function AdminNoticeForm() {
     }
 
     try {
+      const payload = {
+        ...formData,
+        textEn: formData.textHi // Auto-map English field to the Hindi input
+      };
+
       const res = await fetch('/api/notices', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
       
       const data = await res.json();
@@ -68,19 +73,7 @@ export default function AdminNoticeForm() {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-bold text-gray-700 mb-1">Notice Text (English)</label>
-          <textarea
-            name="textEn"
-            value={formData.textEn}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded focus:border-[#800000] outline-none"
-            rows="2"
-            placeholder="e.g. College will remain closed tomorrow..."
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-bold text-gray-700 mb-1">Notice Text (Hindi)</label>
+          <label className="block text-sm font-bold text-gray-700 mb-1">Notice Message</label>
           <textarea
             name="textHi"
             value={formData.textHi}

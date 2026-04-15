@@ -11,7 +11,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Gallery from "@/components/Gallery";
+import PhotoSlider from "@/components/PhotoSlider";
+import CollegeVideo from "@/components/CollegeVideo";
 import Testimonials from "@/components/Testimonials";
+import Awards from "@/components/Awards";
 import placeholders from '@/lib/blur-placeholders.json';
 
 const fadeIn = {
@@ -108,6 +111,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* ====== COLLEGE VIDEO SECTION ====== */}
+      <CollegeVideo language={language} />
 
       {/* ====== STATS SECTION ====== */}
       <section className="py-16 bg-[#800000]">
@@ -213,6 +219,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ====== AWARDS & RECOGNITION SECTION ====== */}
+      <Awards language={language} />
 
       {/* ====== COURSES SECTION ====== */}
       <section id="courses" className="py-24 px-4 bg-[#0a1e3f]">
@@ -454,6 +463,9 @@ export default function Home() {
 
       {/* ====== LIFE AT MKR (GALLERY) SECTION ====== */}
       <Gallery language={language} />
+
+      {/* ====== PHOTO SLIDER SECTION ====== */}
+      <PhotoSlider language={language} />
 
       {/* ====== TESTIMONIALS SECTION ====== */}
       <Testimonials language={language} />

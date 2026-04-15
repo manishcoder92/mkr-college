@@ -155,7 +155,7 @@ export default function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.9 }}
             className="fixed bottom-28 right-4 sm:right-10 z-[100] w-[calc(100vw-2rem)] sm:w-[420px] bg-[#F8FAFC] rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-gray-100 overflow-hidden flex flex-col transition-all"
-            style={{ maxHeight: 'calc(100dvh - 10rem)' }}
+            style={{ maxHeight: 'min(calc(100dvh - 10rem), 600px)' }}
           >
             {/* Professional Sky Header */}
             <div className="bg-gradient-to-r from-[#00A3FF] via-[#0057FF] to-[#0085FF] text-white p-6 pb-12 rounded-b-[2.5rem] relative shadow-lg">
@@ -190,10 +190,10 @@ export default function AIAssistant() {
             </div>
 
             {/* Content Area */}
-            <div className="mt-10 flex-1 overflow-hidden flex flex-col">
+            <div className="mt-10 flex-1 overflow-hidden flex flex-col min-h-0">
               {activeTab === 'chat' ? (
                 <>
-                  <div ref={chatRef} className="flex-1 overflow-y-auto p-6 space-y-4" style={{ minHeight: '300px' }}>
+                  <div ref={chatRef} className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4 min-h-0">
                     {messages.map((msg, i) => (
                       <div key={i} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
                         <div className={`max-w-[85%] px-5 py-3 rounded-2xl text-sm leading-relaxed shadow-sm ${
@@ -207,8 +207,8 @@ export default function AIAssistant() {
                     ))}
                   </div>
 
-                  <div className="p-6 bg-white border-t border-gray-100 rounded-t-[2.5rem] shadow-inner">
-                    <p className="text-[10px] text-gray-400 font-bold mb-3 uppercase tracking-[0.2em] px-1">How can I assist you?</p>
+                  <div className="p-4 sm:p-5 bg-white border-t border-gray-100 rounded-t-[2rem] shadow-inner shrink-0">
+                    <p className="text-[10px] text-gray-400 font-bold mb-2 uppercase tracking-[0.2em] px-1">How can I assist you?</p>
                     <div className="grid grid-cols-2 gap-2">
                        {quickReplies.map((qr) => (
                         <motion.button
@@ -216,7 +216,7 @@ export default function AIAssistant() {
                           whileHover={{ scale: 1.05, backgroundColor: 'rgba(0, 87, 255, 0.1)' }}
                           whileTap={{ scale: 0.95 }}
                           onClick={() => handleQuickReply(qr.key, qr.label)}
-                          className="text-left text-xs font-bold text-[#0057FF] bg-[#0057FF]/5 px-4 py-3 rounded-xl transition-colors border border-[#0057FF]/5"
+                          className="text-left text-xs font-bold text-[#0057FF] bg-[#0057FF]/5 px-3 py-2.5 rounded-xl transition-colors border border-[#0057FF]/5"
                         >
                           {qr.label}
                         </motion.button>

@@ -42,7 +42,7 @@ export default function AdmitCardSearch({ onResult }) {
       className="max-w-md w-full mx-auto bg-white/95 backdrop-blur-md p-6 sm:p-8 rounded-xl shadow-2xl border border-gray-100"
     >
       <div className="text-center mb-6 sm:mb-8">
-        <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#800000]">Download Admit Card</h2>
+        <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#800000]">Download</h2>
         <p className="text-xs sm:text-sm text-gray-500 mt-2 font-sans">Enter credentials to fetch your digital copy</p>
       </div>
 
