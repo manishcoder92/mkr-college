@@ -7,12 +7,10 @@ import Image from 'next/image';
 // The user can drop new photos in the public/images/slider folder
 // and add their filenames to this array.
 const sliderImages = [
-  '/images/slider/pic.jpg',
+  '/images/slider/pic.JPG',
   '/images/gallery/events/cover.jpg',
   '/images/slider/pic1.jpg',
   '/images/slider/pic2.jpg',
-  '/images/slider/pic3.jpg',
-  '/images/slider/picc.jpg',
   '/images/slider/pic4.jpg',
   '/images/slider/pic5.jpg',
   '/images/slider/pic6.jpg',
@@ -23,7 +21,8 @@ const sliderImages = [
   '/images/slider/pic11.jpg',
   '/images/slider/pic12.jpg',
   '/images/slider/pic13.jpg',
-
+  '/images/slider/pic14.jpg',
+  '/images/slider/picc.JPG',
 ];
 
 export default function PhotoSlider({ language }) {
