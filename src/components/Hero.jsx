@@ -52,7 +52,7 @@ export default function Hero() {
           <div className="mb-8">
             {/* College Name — ALWAYS in Hindi */}
             <motion.h1
-              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#FFD700] mb-2 leading-tight drop-shadow-[0_3px_3px_rgba(0,0,0,0.8)]"
+              className="font-serif text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#FFD700] mb-2 leading-tight drop-shadow-[0_3px_3px_rgba(0,0,0,0.8)]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15 }}
@@ -61,7 +61,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.h2
-              className="font-serif text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]"
+              className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#FFD700] mb-2 leading-tight drop-shadow-[0_3px_3px_rgba(0,0,0,0.8)]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}

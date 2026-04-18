@@ -36,14 +36,6 @@ export default function Home() {
       link: '/courses/ba-social-science',
       img: '/images/gallery/academics/cover.jpg'
     },
-    bCom: {
-      titleEn: "Bachelor's of Commerce (B.COM)",
-      titleHi: 'बैचलर ऑफ कॉमर्स (बी.कॉम)',
-      descEn: 'A Bachelor of Commerce (B.COM) program offers a comprehensive study in Accounting & Finance, Marketing, and Human Resource Management.',
-      descHi: 'बैचलर ऑफ कॉमर्स कार्यक्रम लेखा और वित्त, विपणन और मानव संसाधन प्रबंधन में एक व्यापक अध्ययन प्रदान करता है।',
-      link: '/courses/bcom',
-      img: '/images/gallery/academics/cover1.jpg'
-    },
     baHumanities: {
       titleEn: "Bachelor's of Arts (B.A)-Humanities",
       titleHi: 'बैचलर ऑफ आर्ट्स (बीए)-मानविकी',
@@ -51,6 +43,14 @@ export default function Home() {
       descHi: 'मानविकी में बीए आमतौर पर हिंदी, अंग्रेजी, संगीत, संस्कृत, दर्शनशास्त्र और उर्दू जैसे विषयों को शामिल करता है।',
       link: '/courses/ba-humanities',
       img: '/images/gallery/academics/cover2.jpg'
+    },
+    bCom: {
+      titleEn: "Bachelor's of Commerce (B.COM)",
+      titleHi: 'बैचलर ऑफ कॉमर्स (बी.कॉम)',
+      descEn: 'A Bachelor of Commerce (B.COM) program offers a comprehensive study in Accounting & Finance, Marketing, and Human Resource Management.',
+      descHi: 'बैचलर ऑफ कॉमर्स कार्यक्रम लेखा और वित्त, विपणन और मानव संसाधन प्रबंधन में एक व्यापक अध्ययन प्रदान करता है।',
+      link: '/courses/bcom',
+      img: '/images/gallery/academics/cover1.jpg'
     }
   };
 
@@ -194,11 +194,11 @@ export default function Home() {
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
-                
+
                 <h3 className="text-[22px] font-serif font-bold text-[#800000] text-center mb-1 group-hover:text-[#5C0000] transition-colors">{leader.name}</h3>
                 <p className="text-[#D97706] font-bold text-sm text-center mb-2 tracking-wide uppercase">{leader.role}</p>
                 {leader.qual && <p className="text-gray-400 text-[11px] font-semibold tracking-wider text-center mb-5 uppercase">{leader.qual}</p>}
-                
+
                 {/* Quote Layout */}
                 <div className="relative flex-grow flex flex-col justify-center">
                   <span className="absolute -top-4 -left-2 text-4xl text-[#800000]/10 font-serif">"</span>
@@ -211,7 +211,7 @@ export default function Home() {
                 <div className="mt-8 text-center">
                   <Link href={leader.link} className="group/btn inline-flex items-center justify-center gap-2 bg-slate-50 hover:bg-[#5B48D9] text-[#5B48D9] hover:text-white border border-[#5B48D9]/20 font-bold py-2.5 px-6 rounded-full text-xs uppercase tracking-widest transition-all duration-300 shadow-sm hover:shadow-md">
                     {language === 'en' ? 'Read Full Message' : 'पूरा संदेश पढ़ें'}
-                    <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
                   </Link>
                 </div>
               </motion.div>
@@ -249,63 +249,63 @@ export default function Home() {
 
           {/* Cards Grid */}
           <div className="grid md:grid-cols-3 gap-8">
-            
+
             {/* Course 1: BA Social Science (White Inset Card) */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
               whileHover={{ y: -10 }} onClick={() => setSelectedCourse(coursesData.baSocial)}
               className="relative group w-full h-[550px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 cursor-pointer border border-white/5">
               <Image src="/images/gallery/academics/cover.jpg" alt="BA Social Science" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-1000 group-hover:scale-110" />
               <div className="absolute inset-0 bg-[#0a1e3f]/20 group-hover:bg-[#0a1e3f]/10 transition-colors duration-500" />
-              
+
               <div className="absolute bottom-6 left-6 right-6 bg-white rounded-xl p-6 transition-transform duration-500 group-hover:-translate-y-2 shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
                 <h3 className="text-[20px] font-serif font-bold text-[#0a1e3f] leading-snug">
                   {language === 'en' ? coursesData.baSocial.titleEn : coursesData.baSocial.titleHi}
                 </h3>
                 <button className="mt-4 text-[#005B9F] font-bold text-sm flex items-center justify-start group/link">
-                  {language === 'en' ? 'Quick View / Read More' : 'त्वरित दृश्य / और पढ़ें'} 
-                  <svg className="ml-2 w-4 h-4 transition-transform group-hover/link:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  {language === 'en' ? 'Quick View / Read More' : 'त्वरित दृश्य / और पढ़ें'}
+                  <svg className="ml-2 w-4 h-4 transition-transform group-hover/link:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
                 </button>
               </div>
             </motion.div>
 
-            {/* Course 2: B.Com (Premium Blue Inset Card) */}
+            {/* Course 2: BA Humanities (White Inset Card) */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ ...fadeIn, visible: { ...fadeIn.visible, transition: { duration: 0.6, delay: 0.15 } } }}
+              whileHover={{ y: -10 }} onClick={() => setSelectedCourse(coursesData.baHumanities)}
+              className="relative group w-full h-[550px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 cursor-pointer border border-white/5">
+              <Image src="/images/gallery/academics/cover2.jpg" alt="BA Humanities" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-1000 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-[#0a1e3f]/20 group-hover:bg-[#0a1e3f]/10 transition-colors duration-500" />
+
+              <div className="absolute bottom-6 left-6 right-6 bg-white rounded-xl p-6 transition-transform duration-500 group-hover:-translate-y-2 shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
+                <h3 className="text-[20px] font-serif font-bold text-[#0a1e3f] leading-snug">
+                  {language === 'en' ? coursesData.baHumanities.titleEn : coursesData.baHumanities.titleHi}
+                </h3>
+                <button className="mt-4 text-[#005B9F] font-bold text-sm flex items-center justify-start group/link">
+                  {language === 'en' ? 'Quick View / Read More' : 'त्वरित दृश्य / और पढ़ें'}
+                  <svg className="ml-2 w-4 h-4 transition-transform group-hover/link:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                </button>
+              </div>
+            </motion.div>
+
+            {/* Course 3: B.Com (Premium Blue Inset Card) */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ ...fadeIn, visible: { ...fadeIn.visible, transition: { duration: 0.6, delay: 0.3 } } }}
               whileHover={{ y: -10 }} onClick={() => setSelectedCourse(coursesData.bCom)}
               className="relative group w-full h-[550px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 cursor-pointer border border-white/5">
               <Image src="/images/gallery/academics/cover1.jpg" alt="B.Com" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-1000 group-hover:scale-110" />
               <div className="absolute inset-0 bg-[#0a1e3f]/20 group-hover:bg-[#0a1e3f]/10 transition-colors duration-500" />
-              
+
               <div className="absolute bottom-6 left-6 right-6 bg-gradient-to-br from-[#005B9F] to-[#003B6F] rounded-xl p-6 transition-transform duration-500 group-hover:-translate-y-2 shadow-[0_20px_40px_rgba(0,59,111,0.5)]">
                 <div className="text-[#FFD700] mb-3">
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                   </svg>
                 </div>
                 <h3 className="text-[20px] font-serif font-bold text-white leading-snug">
                   {language === 'en' ? coursesData.bCom.titleEn : coursesData.bCom.titleHi}
                 </h3>
                 <button className="mt-4 text-[#FFD700] font-bold text-sm flex items-center justify-start group/link">
-                  {language === 'en' ? 'Quick View / Read More' : 'त्वरित दृश्य / और पढ़ें'} 
-                  <svg className="ml-2 w-4 h-4 transition-transform group-hover/link:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </button>
-              </div>
-            </motion.div>
-
-            {/* Course 3: BA Humanities (White Inset Card) */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ ...fadeIn, visible: { ...fadeIn.visible, transition: { duration: 0.6, delay: 0.3 } } }}
-              whileHover={{ y: -10 }} onClick={() => setSelectedCourse(coursesData.baHumanities)}
-              className="relative group w-full h-[550px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 cursor-pointer border border-white/5">
-              <Image src="/images/gallery/academics/cover2.jpg" alt="BA Humanities" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-1000 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-[#0a1e3f]/20 group-hover:bg-[#0a1e3f]/10 transition-colors duration-500" />
-              
-              <div className="absolute bottom-6 left-6 right-6 bg-white rounded-xl p-6 transition-transform duration-500 group-hover:-translate-y-2 shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
-                <h3 className="text-[20px] font-serif font-bold text-[#0a1e3f] leading-snug">
-                  {language === 'en' ? coursesData.baHumanities.titleEn : coursesData.baHumanities.titleHi}
-                </h3>
-                <button className="mt-4 text-[#005B9F] font-bold text-sm flex items-center justify-start group/link">
-                  {language === 'en' ? 'Quick View / Read More' : 'त्वरित दृश्य / और पढ़ें'} 
-                  <svg className="ml-2 w-4 h-4 transition-transform group-hover/link:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  {language === 'en' ? 'Quick View / Read More' : 'त्वरित दृश्य / और पढ़ें'}
+                  <svg className="ml-2 w-4 h-4 transition-transform group-hover/link:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
                 </button>
               </div>
             </motion.div>
@@ -330,13 +330,13 @@ export default function Home() {
                   className="bg-white max-w-2xl w-full rounded-3xl overflow-hidden shadow-2xl relative"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <button 
+                  <button
                     onClick={() => setSelectedCourse(null)}
                     className="absolute top-4 right-4 bg-white/20 hover:bg-white text-white hover:text-black rounded-full p-2 backdrop-blur-md transition-all z-10 shadow-lg"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                   </button>
-                  
+
                   <div className="w-full h-48 md:h-64 relative">
                     <Image src={selectedCourse.img} alt={selectedCourse.titleEn} fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
@@ -346,21 +346,21 @@ export default function Home() {
                       </h3>
                     </div>
                   </div>
-                  
+
                   <div className="p-8">
                     <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                       {language === 'en' ? selectedCourse.descEn : selectedCourse.descHi}
                     </p>
-                    
+
                     <div className="mt-8 flex justify-end gap-4">
-                      <button 
-                        onClick={() => setSelectedCourse(null)} 
+                      <button
+                        onClick={() => setSelectedCourse(null)}
                         className="px-6 py-2.5 rounded-full font-bold text-gray-500 hover:bg-gray-100 transition-colors"
                       >
                         {language === 'en' ? 'Close' : 'बंद करें'}
                       </button>
-                      <a 
-                        href={selectedCourse.link} 
+                      <a
+                        href={selectedCourse.link}
                         className="px-6 py-2.5 bg-[#005B9F] hover:bg-[#003B6F] text-white rounded-full font-bold text-sm tracking-wide transition-colors shadow-md"
                       >
                         {language === 'en' ? 'Open Full Course Page' : 'पूरा पाठ्यक्रम पृष्ठ खोलें'}
