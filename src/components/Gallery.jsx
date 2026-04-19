@@ -14,6 +14,8 @@ const galleryData = [
     images: [
       '/images/gallery/campus/cover.jpg',
       '/images/gallery/campus/cover1.jpg',
+      '/images/gallery/campus/cover2.jpg',
+      '/images/gallery/campus/cover3.jpg',
     ]
   },
   {
@@ -26,6 +28,7 @@ const galleryData = [
       '/images/gallery/events/cover1.jpg',
       '/images/gallery/events/cover2.jpg',
       '/images/gallery/events/cover3.jpg',
+      '/images/gallery/events/cover4.jpg',
     ]
   },
   {
@@ -37,6 +40,8 @@ const galleryData = [
       '/images/gallery/academics/cover.jpg',
       '/images/gallery/academics/cover1.jpg',
       '/images/gallery/academics/cover2.jpg',
+      '/images/gallery/academics/cover3.jpg',
+      '/images/gallery/academics/cover4.jpg',
     ]
   },
   {
