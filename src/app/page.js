@@ -15,6 +15,7 @@ import PhotoSlider from "@/components/PhotoSlider";
 import CollegeVideo from "@/components/CollegeVideo";
 import Testimonials from "@/components/Testimonials";
 import Awards from "@/components/Awards";
+import Toppers from "@/components/Toppers";
 import placeholders from '@/lib/blur-placeholders.json';
 
 const fadeIn = {
@@ -34,7 +35,7 @@ export default function Home() {
       descEn: 'A Bachelor of Arts (BA) in Social Science integrates disciplines such as Ancient Indian History, Economics, Geography, History, Home Science, Political Science, Psychology, and Sociology.',
       descHi: 'सामाजिक विज्ञान में बीए प्राचीन भारतीय इतिहास, अर्थशास्त्र, भूगोल, इतिहास, गृह विज्ञान, राजनीति विज्ञान, मनोविज्ञान और समाजशास्त्र जैसे विषयों को एकीकृत करता है।',
       link: '/courses/ba-social-science',
-      img: '/images/gallery/academics/cover.jpg'
+      img: '/images/courses/ba-social.jpg'
     },
     baHumanities: {
       titleEn: "Bachelor's of Arts (B.A)-Humanities",
@@ -42,7 +43,7 @@ export default function Home() {
       descEn: 'A Bachelor of Arts (B.A) in Humanities typically encompasses subjects like Hindi, English, Music, Sanskrit, Philosophy and Urdu.',
       descHi: 'मानविकी में बीए आमतौर पर हिंदी, अंग्रेजी, संगीत, संस्कृत, दर्शनशास्त्र और उर्दू जैसे विषयों को शामिल करता है।',
       link: '/courses/ba-humanities',
-      img: '/images/gallery/academics/cover2.jpg'
+      img: '/images/courses/ba-humanities.jpg'
     },
     bCom: {
       titleEn: "Bachelor's of Commerce (B.COM)",
@@ -50,7 +51,7 @@ export default function Home() {
       descEn: 'A Bachelor of Commerce (B.COM) program offers a comprehensive study in Accounting & Finance, Marketing, and Human Resource Management.',
       descHi: 'बैचलर ऑफ कॉमर्स कार्यक्रम लेखा और वित्त, विपणन और मानव संसाधन प्रबंधन में एक व्यापक अध्ययन प्रदान करता है।',
       link: '/courses/bcom',
-      img: '/images/gallery/academics/cover1.jpg'
+      img: '/images/courses/bcom.jpg'
     }
   };
 
@@ -222,6 +223,9 @@ export default function Home() {
 
       {/* ====== AWARDS & RECOGNITION SECTION ====== */}
       <Awards language={language} />
+
+      {/* ====== TOPPERS SECTION ====== */}
+      <Toppers language={language} />
 
       {/* ====== COURSES SECTION ====== */}
       <section id="courses" className="py-24 px-4 bg-[#0a1e3f]">

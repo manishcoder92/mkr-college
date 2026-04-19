@@ -145,29 +145,19 @@ export default function Testimonials({ language = 'en' }) {
           </AnimatePresence>
 
           {/* Controls */}
-          <div className="absolute bottom-6 right-6 md:right-16 hidden md:flex gap-3 z-30">
+          <div className="absolute bottom-4 right-4 md:bottom-6 md:right-16 flex gap-2 md:gap-3 z-30">
             <button
               onClick={() => setCurrentIndex((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length)}
-              className="w-12 h-12 rounded-full bg-white text-[#800000] border-2 border-[#800000]/10 flex items-center justify-center hover:bg-[#800000] hover:text-white transition-all shadow-md group"
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-[#800000] border-2 border-[#800000]/10 flex items-center justify-center hover:bg-[#800000] hover:text-white transition-all shadow-md group"
             >
-              <svg className="w-6 h-6 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
+              <svg className="w-5 h-5 md:w-6 md:h-6 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
             </button>
             <button
               onClick={() => setCurrentIndex((prev) => (prev + 1) % testimonialsData.length)}
-              className="w-12 h-12 rounded-full bg-[#800000] text-white flex items-center justify-center hover:bg-[#5C0000] transition-all shadow-md group border-2 border-[#800000]"
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#800000] text-white flex items-center justify-center hover:bg-[#5C0000] transition-all shadow-md group border-2 border-[#800000]"
             >
-              <svg className="w-6 h-6 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+              <svg className="w-5 h-5 md:w-6 md:h-6 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
             </button>
-          </div>
-
-          <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-3 md:hidden z-30">
-            {testimonialsData.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                className={`h-2.5 rounded-full transition-all ${idx === currentIndex ? 'bg-[#800000] w-8' : 'bg-gray-300 w-2.5'}`}
-              />
-            ))}
           </div>
         </div>
       </div>

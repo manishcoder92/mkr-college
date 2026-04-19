@@ -23,6 +23,10 @@ const sliderImages = [
   '/images/slider/pic13.jpg',
   '/images/slider/pic14.jpg',
   '/images/slider/picc.JPG',
+  '/images/slider/pic17.jpg', // Added slot 17
+  '/images/slider/pic18.jpg', // Added slot 18
+  '/images/slider/pic19.jpg', // Added slot 19
+  '/images/slider/pic20.jpg', // Added slot 20
 ];
 
 export default function PhotoSlider({ language }) {
@@ -46,39 +50,29 @@ export default function PhotoSlider({ language }) {
           {language === 'en' ? 'Have a glance at our gallery section' : 'हमारी गैलरी अनुभाग पर एक नज़र डालें'}
         </h2>
 
-        {/* Draggable Slider Area */}
-        <motion.div
+        {/* Native Horizontal Scroll Area */}
+        <div
           ref={carouselRef}
-          className="cursor-grab active:cursor-grabbing overflow-hidden"
-          whileTap={{ cursor: "grabbing" }}
+          className="flex gap-4 md:gap-8 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth pb-8 pt-4 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         >
-          <motion.div
-            drag="x"
-            dragConstraints={{ right: 0, left: -width }}
-            dragElastic={0.2}
-            className="flex gap-4 md:gap-8 min-w-max"
-          >
-            {sliderImages.map((src, index) => (
-              <motion.div
-                key={index}
-                className="relative w-[300px] sm:w-[400px] md:w-[500px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 flex-shrink-0"
-                whileHover={{ scale: 1.02, borderColor: 'rgba(255,215,0,0.4)' }}
-                transition={{ duration: 0.4 }}
-              >
-                <Image
-                  src={src}
-                  alt={`Slider image ${index + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 300px, 500px"
-                  className="object-cover pointer-events-none" // prevent image drag interference
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
+          {sliderImages.map((src, index) => (
+            <div
+              key={index}
+              className="relative w-[80vw] sm:w-[400px] md:w-[500px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 flex-shrink-0 snap-center transition-transform duration-500 hover:scale-[1.02] hover:border-[#FFD700]/40"
+            >
+              <Image
+                src={src}
+                alt={`Slider image ${index + 1}`}
+                fill
+                sizes="(max-width: 768px) 80vw, 500px"
+                className="object-cover"
+              />
+            </div>
+          ))}
+        </div>
 
-        <p className="text-white/40 text-sm text-center mt-8 italic pointer-events-none">
-          {language === 'en' ? '← Drag to slide →' : '← सरकाने के लिए ड्रैग करें →'}
+        <p className="text-white/40 text-sm text-center mt-4 italic pointer-events-none">
+          {language === 'en' ? '← Scroll horizontally to see more →' : '← अधिक देखने के लिए क्षैतिज रूप से स्क्रॉल करें →'}
         </p>
       </div>
     </section>

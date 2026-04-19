@@ -1,6 +1,7 @@
 'use client';
 
 import { useLanguage } from '@/components/LanguageContext';
+import Image from 'next/image';
 
 export default function Footer() {
   const { language } = useLanguage();
@@ -12,17 +13,26 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
         {/* College Info */}
         <div className="sm:col-span-2 lg:col-span-1">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#800000] flex items-center justify-center text-white font-serif font-bold text-xs sm:text-sm border-2 border-[#FFD700] shrink-0">MKR</div>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 relative bg-white rounded-full overflow-hidden border-2 border-[#FFD700] shadow-md">
+              <Image
+                src="/assets/college logo.webp"
+                alt="MKR College Logo"
+                fill
+                sizes="64px"
+                className="object-contain p-1.5"
+              />
+            </div>
             <div>
-              <h3 className="font-serif font-bold text-[#FFD700] text-sm sm:text-base">MKR Dr. GR College</h3>
+              <h3 className="font-serif font-bold text-[#FFD700] text-sm sm:text-base">माताश्री कौशल्या रामदेव
+                डॉ० गणेश राय डिग्री कॉलेज</h3>
               <p className="text-[10px] sm:text-xs text-gray-400">Sitamarhi, Bihar</p>
             </div>
           </div>
           <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
             {language === 'en'
               ? 'Founded on April 27, 2015, M.K.R. Dr. G.R.D. College is dedicated to providing quality education affiliated with B.R.A. Bihar University, Muzaffarpur.'
-              : '27 अप्रैल 2015 को स्थापित, एम.के.आर. डॉ. जी.आर.डी. कॉलेज गुणवत्तापूर्ण शिक्षा प्रदान करने के लिए समर्पित है।'
+              : '27 अप्रैल 2015 को स्थापित, माताश्री कौशल्या रामदेव डॉ० गणेश राय डिग्री कॉलेज गुणवत्तापूर्ण शिक्षा प्रदान करने के लिए समर्पित है।'
             }
           </p>
         </div>

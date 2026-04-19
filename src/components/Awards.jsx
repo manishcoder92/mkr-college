@@ -21,7 +21,36 @@ const awardsData = [
     img: '/images/awards/award-2.jpg',
     descEn: 'Grand inauguration ceremony of MKR College events graced by distinguished government officials and community leaders.',
     descHi: 'दैनिक भास्कर अखबार एवं माताश्री कौशल्या रामदेव डाॅ गणेश राय डिग्री कॉलेज के संयुक्त तत्वावधान में आयोजित " शूरवीरों का सम्मान " कार्यक्रम का उद्घाटन करते प्राचार्य डॉ अरविन्द कुमार।',
-
+  },
+  {
+    id: 3,
+    img: '/images/awards/award-3.jpg',
+    descEn: 'New Achievement 3 - Please update this caption',
+    descHi: 'माताश्री कौशल्या रामदेव डाॅ गणेश राय डिग्री कॉलेज एवं नव भारती सेवा न्यास के संयुक्त तत्वावधान में आयोजित सीतामढ़ी काव्य महोत्सव का दीप प्रज्ज्वलित कर उद्घाटन करते बिहार विधान परिषद के पूर्व उपसभापति डॉ रामचंद्र पूर्वे, विधान परिषद सदस्य श्रीमती रेखा गुप्ता, सचिव आदरणीय डॉ गणेश राय एवं प्राचार्य डॉ अरविन्द कुमार।',
+  },
+  {
+    id: 4,
+    img: '/images/awards/award-4.jpg',
+    descEn: 'New Achievement 4 - Please update this caption',
+    descHi: 'वर्ग संचालन का दीप प्रज्वलित कर शुभारम्भ करते सचिव आदरणीय डॉ गणेश राय, प्राचार्य डॉ अरविन्द कुमार एवं शिक्षकगण',
+  },
+  {
+    id: 5,
+    img: '/images/awards/award-5.jpg',
+    descEn: 'New Achievement 5 - Please update this caption',
+    descHi: 'बी आर ए बिहार विश्वविद्यालय मुजफ्फरपुर के परीक्षा नियंत्रक डॉ राम कुमार सर के साथ प्राचार्य डॉ अरविन्द कुमार',
+  },
+  {
+    id: 6,
+    img: '/images/awards/award-6.jpeg',
+    descEn: 'New Achievement 6 - Please update this caption',
+    descHi: 'दैनिक समाचार पत्र हिन्दुस्तान द्वारा आयोजित प्रतिभा सम्मान समारोह 2023 में सहभागिता के लिए जिला पदाधिकारी श्री राजीव रौशन से सम्मानित होते प्राचार्य डॉ अरविन्द कुमार',
+  },
+  {
+    id: 7,
+    img: '/images/awards/award-7.jpg',
+    descEn: 'New Achievement 7 - Please update this caption',
+    descHi: 'दैनिक समाचार पत्र हिन्दुस्तान द्वारा आयोजित "प्रतिभा सम्मान समारोह 2024" में शिक्षा के क्षेत्र में उत्कृष्ट योगदान के लिए जिला पदाधिकारी श्री रिची पाण्डेय से सम्मानित होती कॉलेज की प्रबंधक सुश्री अनन्या राज',
   },
 ];
 

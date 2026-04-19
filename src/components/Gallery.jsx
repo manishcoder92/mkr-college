@@ -50,7 +50,10 @@ const galleryData = [
       '/images/gallery/students/cover.jpg',
       '/images/gallery/students/cover1.jpg',
       '/images/gallery/students/cover2.jpg',
-      '/images/gallery/students/cover3.jpg'
+      '/images/gallery/students/cover3.jpg',
+      '/images/gallery/students/cover4.jpg',
+      '/images/gallery/students/cover5.jpg',
+      '/images/gallery/students/cover6.jpg'
     ]
   },
   {
@@ -107,7 +110,7 @@ export default function Gallery({ language }) {
             {language === 'en' ? 'Explore Our Campus' : 'हमारे परिसर का अन्वेषण करें'}
           </h2>
           <p className="text-gray-500 mt-3 max-w-2xl mx-auto">
-            {language === 'en' 
+            {language === 'en'
               ? 'Click a category to view high-quality moments and events from our college life.'
               : 'हमारे कॉलेज जीवन के उच्च-गुणवत्ता वाले क्षणों और घटनाओं को देखने के लिए एक श्रेणी पर क्लिक करें।'}
           </p>
@@ -126,14 +129,14 @@ export default function Gallery({ language }) {
               className="group cursor-pointer relative overflow-hidden rounded-2xl shadow-lg border border-gray-200 bg-white"
             >
               <div className="aspect-[4/3] w-full relative overflow-hidden">
-                <Image 
-                  src={cat.cover} 
+                <Image
+                  src={cat.cover}
                   alt={language === 'en' ? cat.nameEn : cat.nameHi}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   placeholder="blur"
                   blurDataURL={placeholders[cat.cover] || 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8+O1/PQAHTwMhSIt1WQAAAABJRU5ErkJggg=='}
-                  className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
               </div>
@@ -162,7 +165,7 @@ export default function Gallery({ language }) {
             onClick={closeLightbox}
           >
             {/* Close Button */}
-            <button 
+            <button
               className="absolute top-6 right-6 text-white/50 hover:text-white p-2 rounded-full hover:bg-white/10 transition z-50"
               onClick={closeLightbox}
             >
@@ -192,9 +195,9 @@ export default function Gallery({ language }) {
                 onClick={(e) => e.stopPropagation()}
                 className="object-contain drop-shadow-2xl select-none"
               />
-              
+
               {/* Prev Button */}
-              <button 
+              <button
                 onClick={prevImage}
                 className="absolute left-4 md:left-8 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white backdrop-blur-md transition z-50"
               >
@@ -202,7 +205,7 @@ export default function Gallery({ language }) {
               </button>
 
               {/* Next Button */}
-              <button 
+              <button
                 onClick={nextImage}
                 className="absolute right-4 md:right-8 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white backdrop-blur-md transition z-50"
               >
@@ -213,12 +216,11 @@ export default function Gallery({ language }) {
             {/* Thumbnails */}
             <div className="absolute bottom-8 left-0 w-full flex justify-center gap-2 px-4" onClick={(e) => e.stopPropagation()}>
               {activeCategory.images.map((img, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   onClick={() => setCurrentImageIndex(idx)}
-                  className={`w-16 h-12 rounded overflow-hidden cursor-pointer border-2 transition-all relative ${
-                    currentImageIndex === idx ? 'border-[#FFD700] scale-110 opacity-100' : 'border-transparent opacity-40 hover:opacity-100'
-                  }`}
+                  className={`w-16 h-12 rounded overflow-hidden cursor-pointer border-2 transition-all relative ${currentImageIndex === idx ? 'border-[#FFD700] scale-110 opacity-100' : 'border-transparent opacity-40 hover:opacity-100'
+                    }`}
                 >
                   <Image src={img} alt="thumbnail" fill sizes="64px" className="object-cover" />
                 </div>
