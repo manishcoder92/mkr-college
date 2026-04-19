@@ -82,28 +82,40 @@ export default function AIAssistant() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    setTimeout(() => {
-      // Systematic Email Content Formatting
-      const subject = encodeURIComponent(`Admission Guidance Request - ${formData.fullName}`);
-      const body = encodeURIComponent(
-        `Dear Principal,\n\n` +
-        `A new student has requested admission guidance. Here are their details:\n\n` +
-        `Full Name: ${formData.fullName}\n` +
-        `Mobile Number: ${formData.phone}\n` +
-        `Email ID: ${formData.email}\n` +
-        `Interested Course: ${formData.course}\n\n` +
-        `Please reply to this email or call them directly to proceed with guidance.\n`
-      );
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '95cee5f8-a6a7-44ab-968f-359a3322b0f4',
+          subject: `Admission Guidance Request - ${formData.fullName}`,
+          from_name: 'MKR Assistant',
+          to_email: 'mkrdr.grdcollege@gmail.com',
+          name: formData.fullName,
+          phone: formData.phone,
+          email: formData.email,
+          course: formData.course,
+        })
+      });
       
-      window.location.href = `mailto:mkrdr.grdcollege@gmail.com?subject=${subject}&body=${body}`;
-      
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        alert('Something went wrong! Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Network error! Please try again.');
+    } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
-    }, 800);
+    }
   };
 
   return (
@@ -270,9 +282,9 @@ export default function AIAssistant() {
                           onChange={(e) => setFormData({...formData, course: e.target.value})}
                         >
                           <option value="">Select a course</option>
-                          <option value="BA">Bachelor of Arts</option>
-                          <option value="BCOM">Bachelor of Commerce</option>
-                          <option value="BSC">Bachelor of Science</option>
+                          <option value="BA-Social">B.A. (Social Science)</option>
+                          <option value="BA-Humanities">B.A. (Humanities)</option>
+                          <option value="BCom">B.Com. (Accounting & Management)</option>
                         </select>
                         <p className="text-[10px] text-gray-400 ml-1">Which program are you interested in?</p>
                       </div>
