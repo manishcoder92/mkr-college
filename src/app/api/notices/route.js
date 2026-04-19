@@ -51,8 +51,8 @@ export async function POST(request) {
   try {
     const body = await request.json();
 
-    // If both texts are empty, treat as a command to clear custom notices
-    if (!body.textEn?.trim() && !body.textHi?.trim()) {
+    // If text and image are all empty, treat as a command to clear custom notices
+    if (!body.textEn?.trim() && !body.textHi?.trim() && !body.imageUrl) {
       await Notice.deleteMany({});
       return NextResponse.json({ success: true, message: 'All custom notices cleared. Displaying default.' });
     }

@@ -5,17 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 const testimonialsData = [
-  {
-    id: 'topper',
-    name: 'Ankita Bharti',
-    role: '(Music Honours) Session 2021-24',
-    badgeEn: '🏆 College Topper',
-    badgeHi: '🏆 कॉलेज टॉपर',
-    speechEn: 'M.K.R. College provided me with an excellent academic environment. The continuous support from our faculty members helped me achieve the top rank in my session. I am proud to be an alumnus of this prestigious institution.',
-    speechHi: 'M.K.R. कॉलेज ने मुझे उत्कृष्ट शैक्षणिक माहौल प्रदान किया। हमारे संकाय सदस्यों के निरंतर समर्थन ने मुझे अपने सत्र में शीर्ष स्थान प्राप्त करने में मदद की। इस प्रतिष्ठित संस्थान का पूर्व छात्र होने पर मुझे गर्व है।',
-    image: '/images/testimonials/ankita_bharti_new.jpg',
-    featured: true
-  },
+
   {
     id: 'student1',
     name: 'Madhu Kumari',

@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 const NoticeSchema = new mongoose.Schema({
   textEn: { type: String, default: '' },
   textHi: { type: String, default: '' },
+  imageUrl: { type: String, default: null },
   validFrom: { type: Date },
   validUntil: { type: Date },
   isImportant: { type: Boolean, default: false },

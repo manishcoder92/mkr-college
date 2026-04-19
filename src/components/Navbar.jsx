@@ -178,9 +178,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 sm:gap-4 shrink-0 overflow-hidden">
             <Image src="/assets/college logo.webp" alt="MKR College Logo" width={80} height={80} priority className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-sm shrink-0 border-2 border-[#800000]/10" />
-            <div className="leading-tight">
-              <span className="font-serif font-black text-[#800000] text-xl sm:text-3xl block tracking-wide">M.K.R. College</span>
-              <span className="text-[11px] sm:text-sm font-bold text-[#8B6914] tracking-widest uppercase">Sitamarhi, Bihar</span>
+            <div className="leading-tight max-w-[200px] sm:max-w-none">
+              <span className="font-serif font-black text-[#800000] text-sm sm:text-lg md:text-xl block leading-snug">माताश्री कौशल्या रामदेव<br className="hidden sm:block" /> डॉ० गणेश राय डिग्री कॉलेज</span>
+              <span className="text-[10px] sm:text-xs font-bold text-[#8B6914] tracking-widest uppercase mt-1 block">Sitamarhi, Bihar</span>
             </div>
           </Link>
 
