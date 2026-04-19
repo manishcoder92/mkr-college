@@ -489,12 +489,43 @@ export default function Home() {
 function WantToKnowMore({ language }) {
   const [form, setForm] = useState({ name: '', phone: '', course: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setForm({ name: '', phone: '', course: '' });
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY_HERE', // <-- Replace with your actual Web3Forms access key
+          subject: `New Admission Enquiry from ${form.name}`,
+          from_name: 'MKR College Website',
+          to_email: 'mkrdr.grdcollege@gmail.com',
+          name: form.name,
+          phone: form.phone,
+          course: form.course,
+        })
+      });
+      
+      if (response.ok) {
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 4000);
+        setForm({ name: '', phone: '', course: '' });
+      } else {
+        alert('Something went wrong! Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Network error! Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -583,15 +614,19 @@ function WantToKnowMore({ language }) {
                     required
                   >
                     <option value="">{language === 'en' ? 'Select Course' : 'पाठ्यक्रम चुनें'}</option>
-                    <option value="BA">B.A. (Humanities & Social Science)</option>
-                    <option value="BCom">B.Com. (Accounting & Management)</option>
+                    <option value="BA-Social">B.A. (Social Science) / बी.ए. (सामाजिक विज्ञान)</option>
+                    <option value="BA-Humanities">B.A. (Humanities) / बी.ए. (मानविकी)</option>
+                    <option value="BCom">B.Com. (Accounting & Management) / बी.कॉम</option>
                   </select>
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-[#800000] to-[#5C0000] text-white font-bold py-4 rounded-lg hover:opacity-90 transition shadow-lg text-base active:scale-[0.98]"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-[#800000] to-[#5C0000] text-white font-bold py-4 rounded-lg hover:opacity-90 transition shadow-lg text-base active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  {language === 'en' ? '📩 Request Callback' : '📩 कॉलबैक अनुरोध करें'}
+                  {isSubmitting 
+                    ? (language === 'en' ? 'Sending...' : 'भेजा जा रहा है...') 
+                    : (language === 'en' ? '📩 Request Callback' : '📩 कॉलबैक अनुरोध करें')}
                 </button>
               </form>
             )}
