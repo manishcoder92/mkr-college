@@ -494,7 +494,7 @@ function WantToKnowMore({ language }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -503,7 +503,7 @@ function WantToKnowMore({ language }) {
           Accept: 'application/json'
         },
         body: JSON.stringify({
-          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY_HERE', // <-- Replace with your actual Web3Forms access key
+          access_key: '95cee5f8-a6a7-44ab-968f-359a3322b0f4',
           subject: `New Admission Enquiry from ${form.name}`,
           from_name: 'MKR College Website',
           to_email: 'mkrdr.grdcollege@gmail.com',
@@ -512,7 +512,7 @@ function WantToKnowMore({ language }) {
           course: form.course,
         })
       });
-      
+
       if (response.ok) {
         setSubmitted(true);
         setTimeout(() => setSubmitted(false), 4000);
@@ -624,8 +624,8 @@ function WantToKnowMore({ language }) {
                   disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-[#800000] to-[#5C0000] text-white font-bold py-4 rounded-lg hover:opacity-90 transition shadow-lg text-base active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting 
-                    ? (language === 'en' ? 'Sending...' : 'भेजा जा रहा है...') 
+                  {isSubmitting
+                    ? (language === 'en' ? 'Sending...' : 'भेजा जा रहा है...')
                     : (language === 'en' ? '📩 Request Callback' : '📩 कॉलबैक अनुरोध करें')}
                 </button>
               </form>
