@@ -8,14 +8,39 @@ export default function RaiseComplainModal({ isOpen, onClose, language }) {
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    // Simulate API submission
-    setTimeout(() => {
+    
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '95cee5f8-a6a7-44ab-968f-359a3322b0f4',
+          subject: `New Complain Registered - ${form.name}`,
+          from_name: 'MKR College Complain Portal',
+          to_email: 'mkrdr.grdcollege@gmail.com',
+          name: form.name,
+          phone: form.phone,
+          complain: form.complain,
+        })
+      });
+      
+      if (response.ok) {
+        setResult(true);
+      } else {
+        alert('Something went wrong! Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Network error! Please try again.');
+    } finally {
       setSubmitting(false);
-      setResult(true);
-    }, 1500);
+    }
   };
 
   const handleClose = () => {
