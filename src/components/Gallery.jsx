@@ -24,7 +24,8 @@ const galleryData = [
     images: [
       '/images/gallery/events/cover.jpg',
       '/images/gallery/events/cover1.jpg',
-      '/images/gallery/events/cover2.png',
+      '/images/gallery/events/cover2.jpg',
+      '/images/gallery/events/cover3.jpg',
     ]
   },
   {
@@ -36,9 +37,6 @@ const galleryData = [
       '/images/gallery/academics/cover.jpg',
       '/images/gallery/academics/cover1.jpg',
       '/images/gallery/academics/cover2.jpg',
-      '/images/gallery/academics/cover3.jpg',
-      '/images/gallery/academics/cover4.jpg',
-      '/images/gallery/academics/cover5.jpg',
     ]
   },
   {
@@ -68,6 +66,19 @@ const galleryData = [
       '/images/gallery/faculty/cover3.jpg',
       '/images/gallery/faculty/cover4.jpg',
       '/images/gallery/faculty/cover5.jpg'
+    ]
+  },
+  {
+    id: 'administration',
+    nameEn: 'Our Principal',
+    nameHi: 'हमारे प्राचार्य',
+    cover: '/images/gallery/administration/cover.jpg',
+    images: [
+      '/images/gallery/administration/cover.jpg',
+      '/images/gallery/administration/cover1.jpg',
+      '/images/gallery/administration/cover2.jpg',
+      '/images/gallery/administration/cover3.jpg',
+
     ]
   }
 ];
